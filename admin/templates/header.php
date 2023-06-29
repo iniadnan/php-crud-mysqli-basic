@@ -3,7 +3,7 @@ include '../systems/connections.php';
 // CHECK JIKA BELUM LOGIN AKAN DI ARAHKAN KE HALAMAN LOGIN
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: ../admin/dashboard.php");
+    header("Location: ../admin/index.php");
 }
 ?>
 
