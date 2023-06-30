@@ -25,6 +25,41 @@ require "./templates/header.php"
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Bookings</h1>
 
+                    <div class="py-5 px-5 bg-white table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Vendor Name</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">From Destination</th>
+                                    <th scope="col">To Destination</th>
+                                    <th scope="col">Time Flight</th>
+                                    <th scope="col">Time Arrived</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                </tr>
+                            </tbody>
+                    </table>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
 
