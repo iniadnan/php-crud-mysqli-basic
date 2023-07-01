@@ -26,8 +26,14 @@ require "./templates/header.php"
                     <h1 class="h3 text-gray-800">New Vendor</h1>
 
                     <main class="p-5">
-                        <form method="POST" action="#" class="p-5 bg-white">
-                            
+                        <form method="POST" action="../systems/vendors/insert_vendors.php" class="p-5 bg-white">
+                            <div class="col-12 mb-5">
+                                <label for="vendor_name" class="form-label">Nama Vendor</label>
+                                <input type="text" class="form-control" name="vendor_name" id="vendor_name" placeholder="Garuda Indonesia">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </form>
                     </main>
 
