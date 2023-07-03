@@ -26,8 +26,55 @@ require "./templates/header.php"
                     <h1 class="h3 text-gray-800">New Ticket</h1>
 
                     <main class="p-5">
-                        <form method="POST" action="#" class="p-5 bg-white">
-                            
+                        <form method="POST" action="../systems/tickets/insert_ticket.php" class="p-5 bg-white">
+                            <div class="col-12 mb-3">
+                                <label for="vendor" class="form-label">Vendor Penerbangan</label>
+                                <?php
+                                    $sql = "SELECT * FROM vendors";
+                                    $result = mysqli_query($CONNECTION, $sql);
+                                ?>
+                                <select class="form-select w-100 py-2 px-2" id="vendor" name="vendor">
+                                    <?php
+                                        while ($row = mysqli_fetch_array($result)) {
+                                            echo "<option value='". $row['id'] ."'>" . $row['name'] . "</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" name="price" id="price" placeholder="1000000">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="from_destination" class="form-label">From Destination</label>
+                                <input type="text" class="form-control" name="from_destination" id="from_destination" placeholder="From Destination">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="to_destination" class="form-label">To Destination</label>
+                                <input type="text" class="form-control" name="to_destination" id="to_destination" placeholder="To Destination">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="date_flight" class="form-label">Date Flight</label>
+                                <input type="date" class="form-control" name="date_flight" id="date_flight" placeholder="Date Flight">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="time_flight" class="form-label">Time Flight</label>
+                                <input type="text" class="form-control" name="time_flight" id="time_flight" placeholder="Time Flight">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="time_arrived" class="form-label">Time Arrived</label>
+                                <input type="text" class="form-control" name="time_arrived" id="time_arrived" placeholder="Time Arrived">
+                            </div>
+                            <div class="col-12 mb-5">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select w-100 py-2 px-2" id="status" name="status">
+                                    <option value="ready">Ready</option>
+                                    <option value="sold">Sold Out</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </form>
                     </main>
 
