@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         header("Location: ../../admin/vendor.php");
     } else {
         mysqli_query($CONNECTION, $sql3);
-        header("Location: ../../admin/add-vendor.php");
+        header("Location: ../../admin/vendor.php");
     }
 }
 ?>
