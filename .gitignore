@@ -1,2 +1,2 @@
 # ignore ALL .php files
-*.php
+./*.php
