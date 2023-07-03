@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_query($CONNECTION, $sql)) {
         header("Location: ../../admin/vendor.php");
     } else {
-        header("Location: ../../admin/edit-vendor.php");
+        header("Location: ../../admin/edit-vendor.php?id='$id'");
     }
 }
 ?>
