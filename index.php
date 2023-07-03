@@ -21,7 +21,7 @@ session_start();
 
 <body>
     <!-- NAV -->
-    <nav></nav>
+    <?php include_once './templates/nav.php'; ?>
     <!-- HEADER -->
     <?php include_once './templates/header.php'; ?>
     <!-- MAIN -->
