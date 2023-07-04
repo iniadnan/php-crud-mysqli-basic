@@ -20,7 +20,7 @@
         <div class="h-full w-1/2 relative">
             <section class="pt-32 px-20">
                 <h1 class="w-2/3 font-semibold text-2xl text-gray-900 mb-3">Buat akun untuk bisa mendapatkan keuntungannya</h1>
-                <p class="w-2/3 text-base text-gray-600">Buat Akun Dengan nomor ponsel atau email Agar Bisa Dapat Harga dan Promo Terbaik</p>
+                <p class="w-2/3 text-base text-gray-600">Buat akun sekarang dengan Email agar bisa dapat harga dan promo terbaik</p>
             </section>
             <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2" src="./assets/images/daftar-background-bottom.png" alt="Login">
         </div>
@@ -36,16 +36,25 @@
                     </a>
                     <h3 class="font-semibold text-2xl text-black mb-10">Registration</h3>
                     <div class="w-full mb-3">
-                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="text" name="email" placeholder="Email atau Nomor Ponsel">
+                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="email" name="email" placeholder="Email">
                     </div>
                     <div class="w-full mb-3">
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="password" name="password" placeholder="Tulis password anda">
                     </div>
-                    <div class="w-full mb-5">
+                    <div class="w-full mb-3">
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="password" name="password" placeholder="Tulis ulang password anda">
                     </div>
+                    <div class="w-full mb-3">
+                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="text" name="name" placeholder="Nama Lengkap">
+                    </div>
+                    <div class="w-full mb-3">
+                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="text" name="telephone" placeholder="Telephone">
+                    </div>
+                    <div class="w-full mb-3">
+                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="date" name="tanggal_lahir">
+                    </div>
                     <div class="w-full mb-10">
-                        <button type="submit" class="w-full bg-blue-600 text-white font-semibold text-lg py-2 rounded-md">Daftar</button>
+                        <button type="submit" name="submit" class="w-full bg-blue-600 text-white font-semibold text-lg py-2 rounded-md">Daftar</button>
                     </div>
                     <div class="w-full mb-8">
                         <p class="text-base text-gray-600">Dengan login kamu menyetujui <span class="text-blue-600">Syarat & Ketentuan</span> dan <span class="text-blue-600">Kebijakan Privasi</span> yang berlaku.</p>
