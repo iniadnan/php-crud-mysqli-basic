@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- NAV -->
     <nav class="w-full z-50 bg-gray-100">
         <div class="container h-[70px] mx-auto flex items-center justify-center px-5 md:px-8 lg:px-10">
             <div class="flex items-center mr-40">
@@ -24,12 +25,12 @@
                 </a>
             </div>
             <div class="flex items-center gap-x-5 text-gray-500">
-                <a href="./pemesanan.php" class="font-medium text-xl text-gray-900">Pesan</a>
+                <a href="./pemesanan.php?flight_id=<?php echo $_GET['flight_id'] ?>" class="font-medium text-xl text-gray-900">Pesan</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
-                <a href="./pembayaran.html" class="font-medium text-xl text-gray-900">Bayar</a>
+                <a href="./pembayaran.php?flight_id=<?php echo $_GET['flight_id'] ?>" class="font-medium text-xl text-gray-900">Bayar</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -51,7 +52,7 @@
                 </div>
                 <div>
                     <h3 class="font-semibold text-lg text-gray-900 mb-3">Menunggu Pembayaran</h3>
-                    <p class="text-base text-gray-700">Nomor Pesanan : <span class="font-semibold">310330002</span></p>
+                    <p class="text-base text-gray-700">Nomor Pesanan : <span class="font-semibold"><?php echo $_GET['flight_id'] ?></span></p>
                     <p class="text-base text-gray-700 mb-5">Status : <span class="font-semibold">Menunggu Pembayaran</span></p>
                     <p class="text-base text-gray-700 mb-10">Pemesabnan anda telah dikonfirmasi oleh maskapai. Sisten kami sedang menunggu pembayaran diterima dari metode pembayara yang anda pilih.</p>
                     <p class="text-base text-gray-700">Kembali ke <a href="./index.php" class="text-blue-600">halaman utama</a></p>

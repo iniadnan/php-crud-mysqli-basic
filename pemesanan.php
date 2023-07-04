@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- NAV -->
     <nav class="w-full z-50 bg-gray-100">
         <div class="container h-[70px] mx-auto flex items-center justify-center px-5 md:px-8 lg:px-10">
             <div class="flex items-center mr-40">
@@ -38,6 +39,7 @@
             </div>
         </div>
     </nav>
+    <!-- MAIN -->
     <main class="pt-20 pb-40">
         <div class="container mx-auto flex items-start px-5 md:px-10 lg:px-20 md:gap-x-10 lg:gap-x-14">
             <section class="w-8/12 bg-gray-100 py-6 px-8 rounded-md shadow">
@@ -107,7 +109,7 @@
                 </div>
                 <h3 class="font-semibold text-lg text-gray-900 mb-5">Total Pembayaran</h3>
                 <strong class="font-semibold text-2xl text-blue-600">IDR 1.180.000</strong>
-                <a href="./pembayaran.php" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">LANJUTKAN KE PEMBAYARAN</a>
+                <a href="./pembayaran.php?flight_id=<?php echo $_GET['flight_id'] ?>" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">LANJUTKAN KE PEMBAYARAN</a>
             </aside>
         </div>
     </main>

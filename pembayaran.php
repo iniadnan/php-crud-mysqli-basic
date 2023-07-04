@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- NAV -->
     <nav class="w-full z-50 bg-gray-100">
         <div class="container h-[70px] mx-auto flex items-center justify-center px-5 md:px-8 lg:px-10">
             <div class="flex items-center mr-40">
@@ -24,7 +25,7 @@
                 </a>
             </div>
             <div class="flex items-center gap-x-5 text-gray-500">
-                <a href="./pemesanan.php" class="font-medium text-xl text-gray-900">Pesan</a>
+                <a href="./pemesanan.php?flight_id=<?php echo $_GET['flight_id'] ?>" class="font-medium text-xl text-gray-900">Pesan</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -38,6 +39,7 @@
             </div>
         </div>
     </nav>
+    <!-- MAIN -->
     <main class="pt-20 pb-40">
         <div class="container mx-auto flex items-start px-5 md:px-10 lg:px-20 md:gap-x-10 lg:gap-x-14">
             <section class="w-8/12 bg-gray-100 py-6 px-8 rounded-md shadow">
@@ -85,7 +87,7 @@
                     <h4 class="font-semibold text-base text-gray-800">Total Tagihabn</h4>
                     <strong class="font-semibold text-base text-blue-600">Rp 1.300.000</strong>
                 </div>
-                <a href="./status-pembayaran.php" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">BAYAR SEKARANG</a>
+                <a href="./status-pembayaran.php?flight_id=<?php echo $_GET['flight_id'] ?>" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">BAYAR SEKARANG</a>
             </aside>
         </div>
     </main>

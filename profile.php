@@ -1,3 +1,10 @@
+<?php
+include './systems/connections.php';
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: ./login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +26,7 @@
     <?php include_once './templates/nav.php'; ?>
     <!-- HEADER -->
     <?php include_once './templates/header.php'; ?>
+    <!-- CHECK NOT LOGIN RETURN TO LOGIN -->
     <main class="pt-20 pb-40">
         <div class="container mx-auto flex items-start px-5 md:px-10 lg:px-20 md:gap-x-10 lg:gap-x-14">
             <aside class="w-4/12 py-6 px-6 rounded-md shadow bg-gray-100">

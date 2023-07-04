@@ -16,6 +16,7 @@
 
 <body>
     <main class="h-screen w-screen relative bg-white flex">
+        <!-- LEFT -->
         <div class="h-full w-1/2 relative">
             <section class="pt-32 px-20">
                 <h1 class="w-2/3 font-semibold text-2xl text-gray-900 mb-3">Login untuk bisa menikmati semua keuntungannya</h1>
@@ -23,9 +24,16 @@
             </section>
             <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2" src="./assets/images/login-background-bottom.png" alt="Login">
         </div>
+        <!-- RIGHT -->
         <div class="h-full w-1/2 flex items-center bg-gray-100" style="border-top-left-radius: 48px; border-bottom-left-radius: 48px;">
             <div class="w-full">
                 <form class="w-[500px] mx-auto" action="./systems/users/login.php" method="POST">
+                    <a href="./index.php" class="inline-flex items-center justify-center gap-x-3 font-semibold text-base text-gray-800 mb-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                        </svg>
+                        <span>Back To Home</span>
+                    </a>
                     <h3 class="font-semibold text-2xl text-black mb-10">Login</h3>
                     <div class="w-full mb-3">
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="text" name="email" placeholder="Email atau Nomor Ponsel">

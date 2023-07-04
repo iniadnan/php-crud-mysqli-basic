@@ -1,8 +1,8 @@
 <?php
 include './systems/connections.php';
-// CHECK JIKA BELUM LOGIN AKAN DI ARAHKAN KE HALAMAN LOGIN
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +59,7 @@ session_start();
                             <p class="font-semibold text-2xl text-gray-900">IDR <?php echo rupiah($ticket['price']); ?></p>
                         </div>
                         <div class="ml-auto">
-                            <a href="<?php echo $ticket['flight_id'] ?>" class="bg-blue-600 py-3 px-6 rounded-md text-white font-medium text-base">Pilih</a>
+                            <a href="./pemesanan.php?flight_id=<?php echo $ticket['flight_id'] ?>" class="bg-blue-600 py-3 px-6 rounded-md text-white font-medium text-base">Pilih</a>
                         </div>
                     </article>
                 <?php } ?>
