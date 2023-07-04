@@ -85,7 +85,7 @@
                     <h4 class="font-semibold text-base text-gray-800">Total Tagihabn</h4>
                     <strong class="font-semibold text-base text-blue-600">Rp 1.300.000</strong>
                 </div>
-                <a href="#" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">BAYAR SEKARANG</a>
+                <a href="./status-pembayaran.php" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">BAYAR SEKARANG</a>
             </aside>
         </div>
     </main>
