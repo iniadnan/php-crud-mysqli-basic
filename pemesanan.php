@@ -107,7 +107,7 @@
                 </div>
                 <h3 class="font-semibold text-lg text-gray-900 mb-5">Total Pembayaran</h3>
                 <strong class="font-semibold text-2xl text-blue-600">IDR 1.180.000</strong>
-                <a href="#" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">LANJUTKAN KE PEMBAYARAN</a>
+                <a href="./pembayaran.php" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">LANJUTKAN KE PEMBAYARAN</a>
             </aside>
         </div>
     </main>
