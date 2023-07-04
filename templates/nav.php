@@ -1,6 +1,6 @@
     <nav class="h-[70px] w-full fixed top-0 left-0 z-50 bg-white">
         <div class="h-full container mx-auto flex items-center px-5 md:px-8 lg:px-10">
-            <div class="mr-40">
+            <div class="flex items-center mr-40">
                 <a href="./index.php" class="inline-flex items-center gap-x-1">
                     <img class="h-9" src="./assets/images/favicon.png" alt="Icon">
                     <span class="font-semibold text-xl text-blue-400">jalan.com</span>
