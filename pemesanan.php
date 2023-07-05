@@ -1,3 +1,7 @@
+<?php
+include './systems/connections.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,22 +55,37 @@
                     </div>
                     <h2 class="font-semibold text-lg text-gray-900">Detail Pemesan</h2>
                 </div>
-                <div class="flex items-center flex-wrap mb-3">
-                    <h3 class="w-3/12 font-semibold text-lg text-gray-900">Nama Lengkap</h3>
-                    <p class="w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200">Alexandrian Armadani Deva</p>
-                </div>
-                <div class="flex items-center flex-wrap mb-3">
-                    <h3 class="w-3/12 font-semibold text-lg text-gray-900">Alamat Email</h3>
-                    <p class="w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200">Alexandrian Armadani Deva</p>
-                </div>
-                <div class="flex items-center flex-wrap mb-3">
-                    <h3 class="w-3/12 font-semibold text-lg text-gray-900">Nomor Telephone</h3>
-                    <p class="w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200">Alexandrian Armadani Deva</p>
-                </div>
-                <div class="flex items-center flex-wrap mb-3">
-                    <h3 class="w-3/12 font-semibold text-lg text-gray-900">Tanggal Lahir</h3>
-                    <p class="w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200">Alexandrian Armadani Deva</p>
-                </div>
+                <!-- IF NOT LOGIN -->
+                <?php
+                    if (!isset($_SESSION['email'])) {
+                        echo "
+                        <div class='w-full'>
+                            <h3>Seblum melakukan pemesanan tiket, Anda harus <a href='./login.php' class='text-blue-600 underline font-medium'>login</a> terlebih dahulu!</h3>
+                        </div>
+                        ";
+                    } else {
+                        echo "
+                        <div class='w-full'>
+                            <div class='flex items-center flex-wrap mb-3'>
+                                <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Nama Lengkap</h3>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                            </div>
+                            <div class='flex items-center flex-wrap mb-3'>
+                                <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Alamat Email</h3>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                            </div>
+                            <div class='flex items-center flex-wrap mb-3'>
+                                <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Nomor Telephone</h3>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                            </div>
+                            <div class='flex items-center flex-wrap mb-3'>
+                                <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Tanggal Lahir</h3>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                            </div>
+                        </div>
+                        ";
+                    }
+                ?>
             </section>
             <aside class="w-4/12 bg-gray-100 py-6 px-6 rounded-md shadow">
                 <h3 class="font-semibold text-lg text-gray-900 mb-5">Penerbangan</h3>

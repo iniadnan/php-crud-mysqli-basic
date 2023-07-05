@@ -637,20 +637,16 @@ video {
   left: 50%;
 }
 
+.right-6 {
+  right: 1.5rem;
+}
+
 .top-0 {
   top: 0px;
 }
 
-.right-5 {
-  right: 1.25rem;
-}
-
 .top-1\/2 {
   top: 50%;
-}
-
-.right-6 {
-  right: 1.5rem;
 }
 
 .z-10 {
@@ -726,10 +722,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mb-12 {
-  margin-bottom: 3rem;
 }
 
 .inline-block {
@@ -1196,6 +1188,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .shadow {
