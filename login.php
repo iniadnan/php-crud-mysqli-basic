@@ -36,13 +36,13 @@
                     </a>
                     <h3 class="font-semibold text-2xl text-black mb-10">Login</h3>
                     <div class="w-full mb-3">
-                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="text" name="email" placeholder="Email atau Nomor Ponsel">
+                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="email" name="email" placeholder="Email atau Nomor Ponsel">
                     </div>
                     <div class="w-full mb-5">
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="password" name="password" placeholder="Tulis password anda">
                     </div>
                     <div class="w-full mb-10">
-                        <button type="submit" class="w-full bg-blue-600 text-white font-semibold text-lg py-2 rounded-md">LogIn</button>
+                        <button type="submit" name="submit" class="w-full bg-blue-600 text-white font-semibold text-lg py-2 rounded-md">LogIn</button>
                     </div>
                     <div class="w-full mb-8">
                         <p class="text-base text-gray-600">Dengan login kamu menyetujui <span class="text-blue-600">Syarat & Ketentuan</span> dan <span class="text-blue-600">Kebijakan Privasi</span> yang berlaku.</p>

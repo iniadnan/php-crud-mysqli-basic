@@ -20,9 +20,13 @@
                 <img src="./assets/images/id.png" alt="Indonesia">
                 <strong class="font-semibold text-lg text-gray-800">IDR</strong>
             </div>
-            <!-- IF NOT LOGIN -->
-            <a href="./login.php" class="font-medium text-base text-white py-2 px-5 bg-blue-600 rounded-md">Log In / Daftar</a>
-            <!-- IF LOGIN -->
+            <?php
+                if (!isset($_SESSION['email'])) {
+                    echo "<a href='./login.php' class='font-medium text-base text-white py-2 px-5 bg-blue-600 rounded-md'>Log In / Daftar</a>";
+                } else {
+                    echo "<a href='./profile.php' class='font-medium text-base text-white py-2 px-5 bg-blue-600 rounded-md'>". $_SESSION['name'] ."</a>";
+                }
+            ?>
         </div>
     </div>
 </nav>
