@@ -62,7 +62,7 @@ require "./templates/header.php"
                             </div>
                             <div class="col-12 mb-3">
                                 <label for="date_flight" class="form-label">Date Flight</label>
-                                <input type="date" class="form-control" name="date_flight" id="date_flight" value="<?php echo $ticket['date']; ?>">
+                                <input type="date" class="form-control" name="date_flight" id="date_flight" value="<?php echo $ticket['date_flight']; ?>">
                             </div>
                             <div class="col-12 mb-3">
                                 <label for="time_flight" class="form-label">Time Flight</label>
@@ -75,8 +75,8 @@ require "./templates/header.php"
                             <div class="col-12 mb-5">
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-select w-100 py-2 px-2" id="status" name="status">
-                                    <option value="ready">Ready</option>
-                                    <option value="sold">Sold Out</option>
+                                    <option value="ready" <?php echo ($ticket['status'] == 'ready') ? 'selected' : '' ?>>Ready</option>
+                                    <option value="sold" <?php echo ($ticket['status'] == 'sold') ? 'selected' : '' ?>>Sold Out</option>
                                 </select>
                             </div>
                             <div class="col-12">

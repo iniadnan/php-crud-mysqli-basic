@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     $time_arrived = $_POST['time_arrived'];
     $status = $_POST['status'];
 
-    $sql = "INSERT INTO tickets (flight_id, price, from_destination, to_destination, date, time_flight, time_arrived, vendor_id, status) VALUES ('$flight_id', '$price', '$from_destination', '$to_destination','$date_flight','$time_flight','$time_arrived','$vendor','$status')";
+    $sql = "INSERT INTO tickets (flight_id, price, from_destination, to_destination, date_flight, time_flight, time_arrived, vendor_id, status) VALUES ('$flight_id', '$price', '$from_destination', '$to_destination','$date_flight','$time_flight','$time_arrived','$vendor','$status')";
     if (mysqli_query($CONNECTION, $sql)) {
         header("Location: ../../admin/ticket.php");
     } else {

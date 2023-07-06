@@ -10,9 +10,9 @@ if (!isset($_SESSION['username'])) {
 if (isset($_POST['submit'])) {
 
     // RANDOM STRING
-    function generateRandomString($length = 10)
+    function generateRandomNumber($length = 10)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+        $characters = '0123456789';
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         return $randomString;
     }
 
-    $id = generateRandomString(10);
+    $id = generateRandomNumber(10);
     $name = $_POST['vendor_name'];
 
     $sql = "INSERT INTO vendors (id, name) VALUES ('$id', '$name')";

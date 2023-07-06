@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     $time_arrived = $_POST['time_arrived'];
     $status = $_POST['status'];
 
-    $sql = "UPDATE tickets SET vendor_id='$vendor', price='$price', from_destination='$from_destination', to_destination='$to_destination', date='$date_flight', time_flight='$time_flight', time_arrived='$time_arrived', status='$status' WHERE id='$id'";
+    $sql = "UPDATE tickets SET vendor_id='$vendor', price='$price', from_destination='$from_destination', to_destination='$to_destination', date_flight='$date_flight', time_flight='$time_flight', time_arrived='$time_arrived', status='$status' WHERE id='$id'";
 
     if (mysqli_query($CONNECTION, $sql)) {
         header("Location: ../../admin/ticket.php");
