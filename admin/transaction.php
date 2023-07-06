@@ -26,36 +26,35 @@ require "./templates/header.php"
                     <h1 class="h3 mb-4 text-gray-800">Transactions</h1>
 
                     <div class="py-5 px-5 bg-white table-responsive">
-                        <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover">
+                        <?php
+                        $sql = "SELECT transactions.id, transactions.status,  vendors.name AS vendor, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, users.name, users.email FROM transactions INNER JOIN tickets ON transactions.ticket_flight = tickets.flight_id INNER JOIN users ON transactions.user_email = users.email INNER JOIN vendors ON tickets.vendor_id = vendors.id";
+                        $result = mysqli_query($CONNECTION, $sql);
+                        ?>
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Vendor Name</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Transaction ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Vendor</th>
                                     <th scope="col">From Destination</th>
                                     <th scope="col">To Destination</th>
-                                    <th scope="col">Time Flight</th>
-                                    <th scope="col">Time Arrived</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                </tr>
+                                <?php
+                                while ($row = mysqli_fetch_array($result)) { ?>
+                                    <tr>
+                                        <td><?php echo $row['id'] ?></td>
+                                        <td><?php echo $row['name'] ?></td>
+                                        <td><?php echo $row['vendor'] ?></td>
+                                        <td><?php echo $row['from_destination'] ?></td>
+                                        <td><?php echo $row['to_destination'] ?></td>
+                                        <td><?php echo $row['date_flight'] ?></td>
+                                        <td><?php echo $row['status'] ?></td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                     </table>
                     </div>

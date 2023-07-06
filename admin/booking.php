@@ -27,35 +27,60 @@ require "./templates/header.php"
 
                     <div class="py-5 px-5 bg-white table-responsive">
                         <table class="table table-striped table-hover">
+                        <?php
+                        $sql = "SELECT bookings.id, bookings.status, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, users.name, users.email FROM bookings INNER JOIN tickets ON bookings.ticket_flight = tickets.flight_id INNER JOIN users ON bookings.user_email = users.email WHERE bookings.status = 'pending'";
+                        $result = mysqli_query($CONNECTION, $sql);
+                        ?>
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Vendor Name</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Booking ID</th>
+                                    <th scope="col">Flight ID</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">From Destination</th>
                                     <th scope="col">To Destination</th>
-                                    <th scope="col">Time Flight</th>
-                                    <th scope="col">Time Arrived</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                </tr>
+                                <?php
+                                while ($row = mysqli_fetch_array($result)) { ?>
+                                    <tr>
+                                        <td><?php echo $row['id'] ?></td>
+                                        <td><?php echo $row['flight_id'] ?></td>
+                                        <td><?php echo $row['name'] ?></td>
+                                        <td><?php echo $row['from_destination'] ?></td>
+                                        <td><?php echo $row['to_destination'] ?></td>
+                                        <td><?php echo $row['date_flight'] ?></td>
+                                        <td><?php echo $row['status'] ?></td>
+                                        <td class='d-inline-flex'>
+                                            <form action='../systems/bookings/decline_booking.php' method='POST'>
+                                                <input type='hidden' name='email' value='<?php echo $row["email"]; ?>' />
+                                                <input type='hidden' name='flight_id' value='<?php echo $row["flight_id"]; ?>' />
+                                                <input type='hidden' name='id' value='<?php echo $row["id"]; ?>' />
+                                                <input type='hidden' name='total' value='<?php echo $row["price"]; ?>' />
+                                                <button type='submit' name='submit' class='d-inline-flex justify-content-center align-items-center bg-danger text-white' style='height: 32px; width: 32px; border: none'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+                                                        <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z'/>
+                                                        <path d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z'/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                            <form action='../systems/bookings/accept_booking.php' method='POST'>
+                                                <input type='hidden' name='email' value='<?php echo $row["email"]; ?>' />
+                                                <input type='hidden' name='flight_id' value='<?php echo $row["flight_id"]; ?>' />
+                                                <input type='hidden' name='id' value='<?php echo $row["id"]; ?>' />
+                                                <input type='hidden' name='total' value='<?php echo $row["price"]; ?>' />
+                                                <button type='submit' name='submit' class='d-inline-flex justify-content-center align-items-center bg-success text-white ml-3' style='height: 32px; width: 32px; border: none'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                                </svg>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                     </table>
                     </div>

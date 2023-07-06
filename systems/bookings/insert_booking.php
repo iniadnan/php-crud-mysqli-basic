@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
     $sql = "INSERT INTO bookings (id, ticket_flight, user_email, payment, status) VALUES ('$id','$ticket_flight','$user_email', '$payment', '$status')";
     if (mysqli_query($CONNECTION, $sql)) {
-        header("Location: ../../profile.php");
+        header("Location: ../../status-pembayaran.php?flight_id=$id");
     } else {
         header("Location: ../../pembayaran.php?flight_id='$ticket_flight'");
     }
