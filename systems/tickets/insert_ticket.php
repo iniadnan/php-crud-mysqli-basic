@@ -37,5 +37,7 @@ if (isset($_POST['submit'])) {
     } else {
         header("Location: ../../admin/add-ticket.php");
     }
+} else {
+    header("Location: ../../admin/index.php");
 }
 ?>

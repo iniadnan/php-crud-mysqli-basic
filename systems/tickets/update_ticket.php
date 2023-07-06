@@ -26,5 +26,7 @@ if (isset($_POST['submit'])) {
     } else {
         header("Location: ../../admin/edit-ticket.php?id='$id'");
     }
+} else {
+    header("Location: ../../admin/index.php");
 }
 ?>

@@ -24,5 +24,7 @@ if (isset($_POST['submit'])) {
         mysqli_query($CONNECTION, $sql3);
         header("Location: ../../admin/ticket.php");
     }
+} else {
+    header("Location: ../../admin/index.php");
 }
 ?>
