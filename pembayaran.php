@@ -19,6 +19,11 @@ if (!isset($_SESSION['email'])) {
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/css/tailwind.css">
+    <style>
+        .select-method-active {
+            border: 2px solid #2563eb !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -59,19 +64,19 @@ if (!isset($_SESSION['email'])) {
                     <h2 class="font-semibold text-lg text-gray-900">Detail Pembayaran</h2>
                 </div>
                 <div class="flex items-center flex-wrap gap-x-5">
-                    <div class="h-[200px] w-[200px] flex items-center justify-center text-center bg-white rounded cursor-pointer">
+                    <div class="select-method h-[200px] w-[200px] flex items-center justify-center text-center bg-white rounded cursor-pointer">
                         <div>
                             <img class="mx-auto w-[100px]" src="./assets/images/bank.png" alt="Bank">
                             <h6 class="mx-auto text-center font-semibold text-base text-blue-600 mt-5">Transfer Bank</h6>
                         </div>
                     </div>
-                    <div class="h-[200px] w-[200px] flex items-center justify-center text-center bg-white rounded cursor-pointer">
+                    <div class="select-method h-[200px] w-[200px] flex items-center justify-center text-center bg-white rounded cursor-pointer">
                         <div>
                             <img class="mx-auto w-[100px]" src="./assets/images/mc.png" alt="Bank">
                             <h6 class="mx-auto text-center font-semibold text-base text-blue-600 mt-5">MasterCard</h6>
                         </div>
                     </div>
-                    <div class="h-[200px] w-[200px] flex items-center justify-center text-center bg-white rounded cursor-pointer">
+                    <div class="select-method h-[200px] w-[200px] flex items-center justify-center text-center bg-white rounded cursor-pointer">
                         <div>
                             <img class="mx-auto w-[100px]" src="./assets/images/visa.png" alt="Bank">
                             <h6 class="mx-auto text-center font-semibold text-base text-blue-600 mt-5">Visa</h6>
@@ -79,7 +84,7 @@ if (!isset($_SESSION['email'])) {
                     </div>
                 </div>
             </section>
-            <aside class="w-4/12 bg-gray-100 py-6 px-6 rounded-md shadow">
+            <form method="POST" action="./systems/bookings/insert_booking.php" class="w-4/12 bg-gray-100 py-6 px-6 rounded-md shadow">
                 <h3 class="font-semibold text-lg text-gray-900 mb-5">Detail Pembayaran</h3>
                 <div class="flex items-center justify-between mb-2">
                     <h4 class="font-semibold text-base text-gray-800">Total Harga Tiket</h4>
@@ -94,12 +99,26 @@ if (!isset($_SESSION['email'])) {
                     <h4 class="font-semibold text-base text-gray-800">Total Tagihan</h4>
                     <strong class="font-semibold text-base text-blue-600">Rp 1.300.000</strong>
                 </div>
-                <a href="./status-pembayaran.php?flight_id=<?php echo $_GET['flight_id'] ?>" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">BAYAR SEKARANG</a>
-            </aside>
+                <!-- INPUT HIDDEN -->
+                <input type="hidden" name="ticket_flight" value="<?php echo $_GET['flight_id'] ?>" />
+                <input type="hidden" name="user_email" value="<?php echo $_SESSION['email'] ?>" />
+                <input type="hidden" name="payment" id="payment_method" value="" />
+                <button type="submit" name="submit" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">BAYAR SEKARANG</button>
+            </form>
         </div>
     </main>
     <!-- FOOTER -->
     <?php include_once './templates/footer.php'; ?>
+    <!-- JQUERY -->
+    <script src="./styles/js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script>
+    $('.select-method').click(function() {
+        let valPayment = $(this).find('h6').text();
+        $(this).addClass("select-method-active");
+        $(this).siblings().removeClass("select-method-active");
+        $("#payment_method").val(valPayment)
+    });
+    </script>
 </body>
 
 </html>
