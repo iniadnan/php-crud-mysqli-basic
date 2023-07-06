@@ -31,7 +31,7 @@ session_start();
             <p class="text-base text-gray-600">Rekomendasi Penerbangan Termurah</p>
             <div class="mt-10">
                 <?php
-                $sql = "SELECT tickets.id, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date, tickets.time_flight, tickets.time_arrived, tickets.status, vendors.name FROM tickets INNER JOIN vendors ON tickets.vendor_id = vendors.id";
+                $sql = "SELECT tickets.id, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, tickets.status, vendors.name FROM tickets INNER JOIN vendors ON tickets.vendor_id = vendors.id";
                 $resultTickets = mysqli_query($CONNECTION, $sql);
                 function rupiah($angka)
                 {

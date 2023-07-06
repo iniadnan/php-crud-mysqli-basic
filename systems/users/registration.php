@@ -18,6 +18,8 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_query($CONNECTION, $sql2)) {
         mysqli_query($CONNECTION, $sql3);
+        $_SESSION['email'] = $email;
+        $_SESSION['name'] = $name;
         header("Location: ../../index.php");
     } else {
         mysqli_query($CONNECTION, $sql3);

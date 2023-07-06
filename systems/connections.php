@@ -2,7 +2,7 @@
 $SERVERNAME = "localhost";
 $USERNAME = "root";
 $PASSWORD = "";
-$DBNAME = "php_crud_mysqli_basic";
+$DBNAME = "db_uas";
 
 // CREATE CONNECTION
 $CONNECTION = new mysqli($SERVERNAME, $USERNAME, $PASSWORD, $DBNAME);
