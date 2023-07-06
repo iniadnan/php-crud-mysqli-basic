@@ -45,6 +45,19 @@ session_start();
     </nav>
     <!-- MAIN -->
     <main class="pt-20 pb-40">
+    <?php
+    function rupiah($angka)
+    {
+
+        $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
+        return $hasil_rupiah;
+
+    }
+    $flight_id = $_GET['flight_id'];
+    $sqlTicket = "SELECT tickets.id, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, tickets.status, vendors.name FROM tickets INNER JOIN vendors ON tickets.vendor_id = vendors.id WHERE tickets.flight_id = '$flight_id'";
+    $resultTicket = mysqli_query($CONNECTION, $sqlTicket);
+    $ticket = mysqli_fetch_assoc($resultTicket);
+    ?>
         <div class="container mx-auto flex items-start px-5 md:px-10 lg:px-20 md:gap-x-10 lg:gap-x-14">
             <section class="w-8/12 bg-gray-100 py-6 px-8 rounded-md shadow">
                 <div class="flex items-center gap-x-5 mb-8">
@@ -57,58 +70,62 @@ session_start();
                 </div>
                 <!-- IF NOT LOGIN -->
                 <?php
-                    if (!isset($_SESSION['email'])) {
-                        echo "
+                if (!isset($_SESSION['email'])) {
+                    echo "
                         <div class='w-full'>
                             <h3>Seblum melakukan pemesanan tiket, Anda harus <a href='./login.php' class='text-blue-600 underline font-medium'>login</a> terlebih dahulu!</h3>
                         </div>
                         ";
-                    } else {
-                        echo "
+                } else {
+                    $email = $_SESSION['email'];
+                    $sqlUser = "SELECT * FROM users WHERE email = '$email'";
+                    $resultUser = mysqli_query($CONNECTION, $sqlUser);
+                    $user = mysqli_fetch_assoc($resultUser);
+                    echo "
                         <div class='w-full'>
                             <div class='flex items-center flex-wrap mb-3'>
                                 <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Nama Lengkap</h3>
-                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>". $user['name'] ."</p>
                             </div>
                             <div class='flex items-center flex-wrap mb-3'>
                                 <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Alamat Email</h3>
-                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>". $user['email'] ."</p>
                             </div>
                             <div class='flex items-center flex-wrap mb-3'>
                                 <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Nomor Telephone</h3>
-                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>". $user['telephone'] ."</p>
                             </div>
                             <div class='flex items-center flex-wrap mb-3'>
                                 <h3 class='w-3/12 font-semibold text-lg text-gray-900'>Tanggal Lahir</h3>
-                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>Alexandrian Armadani Deva</p>
+                                <p class='w-9/12 text-lg text-gray-700 py-2 px-5 rounded bg-gray-200'>". $user['tanggal_lahir'] ."</p>
                             </div>
                         </div>
                         ";
-                    }
+                }
                 ?>
             </section>
             <aside class="w-4/12 bg-gray-100 py-6 px-6 rounded-md shadow">
                 <h3 class="font-semibold text-lg text-gray-900 mb-5">Penerbangan</h3>
                 <div class="flex items-center gap-x-5 text-base text-gray-800 mb-5">
-                    <span>Yogyakarta</span>
+                    <span><?php echo $ticket['from_destination']; ?></span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>                      
-                    <span>Jakarta</span>                      
+                    <span><?php echo $ticket['to_destination']; ?></span>                      
                 </div>
                 <div class="flex items-center gap-x-5 mb-5">
                     <img class="h-8" src="./assets/images/favicon.png" alt="Plane">
-                    <h2 class="font-semibold text-lg text-gray-900">Garuda Indonesia</h2>
+                    <h2 class="font-semibold text-lg text-gray-900"><?php echo $ticket['name']; ?></h2>
                 </div>
                 <div class="flex items-center gap-x-5 text-base text-gray-800 mb-10">
-                    <span>2023-07-01</span>
+                    <span><?php echo $ticket['date_flight']; ?></span>
                     <span class="inline-block h-3 w-3 rounded-full bg-gray-300"></span>
                     <div class="flex items-center text-gray-800 gap-x-3">
-                        <span>17.00</span>
+                        <span><?php echo $ticket['time_flight']; ?></span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                         </svg>
-                        <span>19.00</span>
+                        <span><?php echo $ticket['time_arrived']; ?></span>
                     </div>
                 </div>
                 <h3 class="font-semibold text-lg text-gray-900 mb-5">Kebijakan Tiket</h3>
@@ -127,7 +144,7 @@ session_start();
                     </div>
                 </div>
                 <h3 class="font-semibold text-lg text-gray-900 mb-5">Total Pembayaran</h3>
-                <strong class="font-semibold text-2xl text-blue-600">IDR 1.180.000</strong>
+                <strong class="font-semibold text-2xl text-blue-600"><?php echo rupiah($ticket['price']); ?></strong>
                 <a href="./pembayaran.php?flight_id=<?php echo $_GET['flight_id'] ?>" class="flex items-center justify-center rounded-md w-full py-4 rounded bg-blue-600 text-white font-medium text-lg mt-10">LANJUTKAN KE PEMBAYARAN</a>
             </aside>
         </div>

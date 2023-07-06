@@ -42,7 +42,7 @@ session_start();
                 }
                 while ($ticket = mysqli_fetch_array($resultTickets)) { ?>
                     <article class="w-full relative flex items-center bg-gray-100 hover:bg-gray-200 pt-14 pb-8 px-10 rounded-lg mb-6">
-                        <span class="font-semibold text-xs text-white py-2 px-5 absolute top-0 left-0 bg-blue-600 rounded-md"><?php echo $ticket['date'] ?></span>
+                        <span class="font-semibold text-xs text-white py-2 px-5 absolute top-0 left-0 bg-blue-600 rounded-md"><?php echo $ticket['date_flight'] ?></span>
                         <div class="mr-20">
                             <h3 class="font-semibold text-2xl text-gray-900"><?php echo $ticket['name'] ?></h3>
                             <p class="font-semibold text-base text-black">ID #<?php echo $ticket['flight_id'] ?></p>
