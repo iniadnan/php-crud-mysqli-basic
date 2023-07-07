@@ -73,6 +73,7 @@ if (!isset($_SESSION['email'])) {
                 <h3 class="font-semibold text-xl text-gray-900 mb-8">Riwayat Pesanan</h3>
                 <div>
                     <?php
+                        // SQL JOIN
                         $sql = "SELECT transactions.id, transactions.status, vendors.name AS vendor, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, users.name, users.email FROM transactions INNER JOIN tickets ON transactions.ticket_flight = tickets.flight_id INNER JOIN users ON transactions.user_email = users.email INNER JOIN vendors ON tickets.vendor_id = vendors.id";
                         $result = mysqli_query($CONNECTION, $sql);
 

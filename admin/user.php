@@ -28,6 +28,7 @@ require "./templates/header.php"
                     <div class="py-5 px-5 bg-white table-responsive">
                         <table class="table table-striped table-hover">
                             <?php
+                                // MENGAMBIL DATA USERS
                                 $sql = "SELECT * FROM users";
                                 $result = mysqli_query($CONNECTION, $sql);
                             ?>
@@ -44,6 +45,7 @@ require "./templates/header.php"
                             <tbody>
                                 <?php
                                 $i = 1;
+                                // LOOPING DATA HASIL QUERY
                                 while($row = mysqli_fetch_array($result)){ ?>
                                 <tr>
                                     <td><?php echo $i; ?></td>

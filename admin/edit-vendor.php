@@ -27,12 +27,14 @@ require "./templates/header.php"
 
                     <main class="p-5">
                         <?php
+                            // MANGAMBIL DATA ID DARI URL
                             $id = $_GET['id'];
                             $sql = "SELECT * FROM vendors WHERE id='$id'";
                             $result = mysqli_query($CONNECTION, $sql);
                             $row = mysqli_fetch_assoc($result);
                         ?>
                         <form method="POST" action="../systems/vendors/update_vendor.php" class="p-5 bg-white">
+                            <!-- MENGGUNAKAN HIDDEN AGAR TIDAK KELIHATAN -->
                             <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $row['id'] ?>">
                             <div class="col-12 mb-5">
                                 <label for="vendor_name" class="form-label">Nama Vendor</label>

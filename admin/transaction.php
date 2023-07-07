@@ -28,6 +28,7 @@ require "./templates/header.php"
                     <div class="py-5 px-5 bg-white table-responsive">
                     <table class="table table-striped table-hover">
                         <?php
+                        // MENGAMBIL DATA USERS, TRANSACTIONS, TICKETS, VENDORS, JOIN 4 TABLE
                         $sql = "SELECT transactions.id, transactions.status,  vendors.name AS vendor, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, users.name, users.email FROM transactions INNER JOIN tickets ON transactions.ticket_flight = tickets.flight_id INNER JOIN users ON transactions.user_email = users.email INNER JOIN vendors ON tickets.vendor_id = vendors.id";
                         $result = mysqli_query($CONNECTION, $sql);
                         ?>

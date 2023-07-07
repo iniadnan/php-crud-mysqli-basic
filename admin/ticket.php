@@ -29,6 +29,7 @@ require "./templates/header.php"
                         <a href="./add-ticket.php" class="d-inline-block py-2 px-4 bg-primary text-white mb-3">Add Ticket</a>
                         <table class="table table-striped table-hover">
                             <?php
+                                // MENGAMBIL DATA DARI DATABASE DENGAN JOIN 2 TABLE
                                 $sql = "SELECT tickets.id, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, tickets.status, vendors.name FROM tickets INNER JOIN vendors ON tickets.vendor_id = vendors.id";
                                 $result = mysqli_query($CONNECTION, $sql);
                             ?>

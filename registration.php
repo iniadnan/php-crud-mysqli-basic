@@ -27,6 +27,7 @@
         <!-- RIGHT -->
         <div class="h-full w-1/2 flex items-center bg-gray-100" style="border-top-left-radius: 48px; border-bottom-left-radius: 48px;">
             <div class="w-full">
+                <!-- FORM POST -->
                 <form class="w-[500px] mx-auto" action="./systems/users/registration.php" method="POST">
                     <a href="./index.php" class="inline-flex items-center justify-center gap-x-3 font-semibold text-base text-gray-800 mb-10">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

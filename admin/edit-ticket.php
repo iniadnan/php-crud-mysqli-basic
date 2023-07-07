@@ -27,12 +27,14 @@ require "./templates/header.php"
 
                     <main class="p-5">
                         <?php
+                            // MANGAMBIL DATA ID DARI URL
                             $id = $_GET['id'];
                             $sql = "SELECT * FROM tickets WHERE id='$id'";
                             $result = mysqli_query($CONNECTION, $sql);
                             $ticket = mysqli_fetch_assoc($result);
                         ?>
                         <form method="POST" action="../systems/tickets/update_ticket.php" class="p-5 bg-white">
+                            <!-- MENGGUNAKAN HIDDEN AGAR TIDAK KELIHATAN -->
                             <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
                             <div class="col-12 mb-3">
                                 <label for="vendor" class="form-label">Vendor Penerbangan</label>

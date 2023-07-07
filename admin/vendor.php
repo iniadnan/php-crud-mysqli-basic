@@ -29,6 +29,7 @@ require "./templates/header.php"
                         <a href="./add-vendor.php" class="d-inline-block py-2 px-4 bg-primary text-white mb-3">Add Vendor</a>
                         <table class="table table-striped table-hover">
                             <?php
+                            // MENGAMBIL DATA VENDORS
                             $sql = "SELECT * FROM vendors";
                             $result = mysqli_query($CONNECTION, $sql);
                             ?>
@@ -42,6 +43,7 @@ require "./templates/header.php"
                             <tbody>
                                 <?php
                                 $i = 1;
+                                // LOOPING DATA HASIL QUERY
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
                                     echo "<td>" . $i . "</td>";

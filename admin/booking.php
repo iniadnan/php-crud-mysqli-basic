@@ -28,6 +28,7 @@ require "./templates/header.php"
                     <div class="py-5 px-5 bg-white table-responsive">
                         <table class="table table-striped table-hover">
                         <?php
+                        // MEMBUAT PERINTAH QUERY JOIN 3 TABLE
                         $sql = "SELECT bookings.id, bookings.status, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, users.name, users.email FROM bookings INNER JOIN tickets ON bookings.ticket_flight = tickets.flight_id INNER JOIN users ON bookings.user_email = users.email WHERE bookings.status = 'pending'";
                         $result = mysqli_query($CONNECTION, $sql);
                         ?>
@@ -45,6 +46,7 @@ require "./templates/header.php"
                             </thead>
                             <tbody>
                                 <?php
+                                // MELAKUKAN LOOPING DATA YANG TADI DIAMBIL
                                 while ($row = mysqli_fetch_array($result)) { ?>
                                     <tr>
                                         <td><?php echo $row['id'] ?></td>
