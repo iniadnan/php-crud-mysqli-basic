@@ -82,6 +82,9 @@ if (!isset($_SESSION['email'])) {
                         <input class="w-full border rounded-md py-3 px-4 text-lg bg-gray-100" type="email" name="email" value="<?php echo $user['email'] ?>" readonly>
                     </div>
                     <div class="w-full mb-3">
+                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="hidden" name="old_password" value="<?php echo $user['password'] ?>">
+                    </div>
+                    <div class="w-full mb-3">
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="password" name="password" value="<?php echo $user['password'] ?>">
                     </div>
                     <div class="w-full mb-3">
