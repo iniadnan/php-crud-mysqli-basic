@@ -42,9 +42,6 @@
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="password" name="password" placeholder="Tulis password anda">
                     </div>
                     <div class="w-full mb-3">
-                        <input class="w-full border rounded-md py-3 px-4 text-lg" type="password" name="password" placeholder="Tulis ulang password anda">
-                    </div>
-                    <div class="w-full mb-3">
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="text" name="name" placeholder="Nama Lengkap">
                     </div>
                     <div class="w-full mb-3">
