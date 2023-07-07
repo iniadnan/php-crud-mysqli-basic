@@ -97,7 +97,7 @@ if (!isset($_SESSION['email'])) {
                         <input class="w-full border rounded-md py-3 px-4 text-lg" type="date" name="tanggal_lahir" value="<?php echo $user['tanggal_lahir'] ?>">
                     </div>
                     <div class="w-full mb-10">
-                        <button type="submit" name="submit" class="w-full bg-blue-600 text-white font-semibold text-lg py-2 rounded-md">Daftar</button>
+                        <button type="submit" name="submit" class="w-full bg-blue-600 text-white font-semibold text-lg py-2 rounded-md">Ubah</button>
                     </div>
                 </form>
             </section>
