@@ -36,7 +36,7 @@ if (!isset($_SESSION['email'])) {
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>                          
                     </div>
-                    <h2 class="font-medium text-xl text-gray-800">Alexandrian Armadani Deva</h2>
+                    <h2 class="font-medium text-xl text-gray-800"><?php echo $_SESSION['name']; ?></h2>
                 </div>
                 <div class="flex items-center gap-x-3 bg-white py-3 px-5 text-gray-700 mb-5 rounded-md">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -72,36 +72,42 @@ if (!isset($_SESSION['email'])) {
             <section class="w-8/12">
                 <h3 class="font-semibold text-xl text-gray-900 mb-8">Riwayat Pesanan</h3>
                 <div>
+                    <?php
+                        $sql = "SELECT transactions.id, transactions.status, vendors.name AS vendor, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, users.name, users.email FROM transactions INNER JOIN tickets ON transactions.ticket_flight = tickets.flight_id INNER JOIN users ON transactions.user_email = users.email INNER JOIN vendors ON tickets.vendor_id = vendors.id";
+                        $result = mysqli_query($CONNECTION, $sql);
+
+                        while ($row = mysqli_fetch_array($result)) { ?>
                     <article class="bg-gray-100 py-6 px-6 rounded shadow relative">
                         <div class="flex items-center gap-x-5 mb-2">
                             <img class="w-5" src="./assets/images/favicon.png" alt="Plane">
-                            <h4 class="font-semibold text-base text-gray-900">Garuda Indonesia</h4>
+                            <h4 class="font-semibold text-base text-gray-900"><?php echo $row['vendor']; ?></h4>
                         </div>
                         <div class="mb-2">
-                            <p class="text-base text-gray-700">Order ID: <strong class="font-semibold">487846</strong></p>
+                            <p class="text-base text-gray-700">Order ID: <strong class="font-semibold"><?php echo $row['id']; ?></strong></p>
                         </div>
                         <div class="flex items-center gap-x-3 mb-3">
                             <p>Rute</p>
-                            <p class="font-semibold text-base text-gray-700">Yogyakarta</p>
+                            <p class="font-semibold text-base text-gray-700"><?php echo $row['from_destination']; ?></p>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                             </svg>
-                            <p class="font-semibold text-base text-gray-700">Jakarta</p>                              
+                            <p class="font-semibold text-base text-gray-700"><?php echo $row['from_destination']; ?></p>                              
                         </div>
                         <div class="flex items-center gap-x-5 text-base text-gray-800">
-                            <span>2023-07-01</span>
+                            <span><?php echo $row['date_flight']; ?></span>
                             <span class="inline-block h-3 w-3 rounded-full bg-gray-300"></span>
                             <div class="flex items-center text-gray-800 gap-x-3">
-                                <span>17.00</span>
+                                <span><?php echo $row['time_flight']; ?></span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg>
-                                <span>19.00</span>
+                                <span><?php echo $row['time_arrived']; ?></span>
                             </div>
                         </div>
                         <!-- STATUS -->
-                        <div class="absolute top-1/2 right-6 transform -translate-y-1/2 rounded z-10 bg-blue-600 text-white py-3 px-8">Selesai</div>
+                        <div class="absolute top-1/2 right-6 transform -translate-y-1/2 rounded z-10 bg-blue-600 uppercase text-white py-3 px-8"><?php echo $row['status']; ?></div>
                     </article>
+                    <?php } ?>
                 </div>
             </section>
         </div>

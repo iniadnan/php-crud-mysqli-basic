@@ -27,11 +27,21 @@ session_start();
     <!-- MAIN -->
     <main class="pt-20 pb-32 px-40">
         <div class="container mx-auto px-5 md:px-8 lg:px-10">
-            <h2 class="font-semibold text-2xl text-blue-600 mb-3">Pilih Penerbangan</h2>
+            <h2 class="font-semibold text-2xl text-blue-600 mb-3">Pilih Penerbangan
+                <?php if(isset($_GET['kota'])) {
+                    $kota = $_GET['kota'];
+                    echo $kota;
+                } ?>
+            </h2>
             <p class="text-base text-gray-600">Rekomendasi Penerbangan Termurah</p>
             <div class="mt-10">
                 <?php
-                $sql = "SELECT tickets.id, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, tickets.status, vendors.name FROM tickets INNER JOIN vendors ON tickets.vendor_id = vendors.id";
+                $sql = "";
+                if(isset($_GET['kota'])) {
+                    $sql = "SELECT tickets.id, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, tickets.status, vendors.name FROM tickets INNER JOIN vendors ON tickets.vendor_id = vendors.id WHERE tickets.to_destination = '$kota'";
+                } else {
+                    $sql = "SELECT tickets.id, tickets.flight_id, tickets.price, tickets.from_destination, tickets.to_destination, tickets.date_flight, tickets.time_flight, tickets.time_arrived, tickets.status, vendors.name FROM tickets INNER JOIN vendors ON tickets.vendor_id = vendors.id";
+                }
                 $resultTickets = mysqli_query($CONNECTION, $sql);
                 function rupiah($angka)
                 {
